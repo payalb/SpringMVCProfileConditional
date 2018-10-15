@@ -1,9 +1,20 @@
 Using Condition to read property file based on active profile and in test , enabling it for test profile
 using @Activeprofile
 
+     	@Override
+	public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+		//context.getBean("")!=null
+		//To condition on presence of a bean
+	return	context.getBeanFactory().containsBeanDefinition("");
+	}
+	
+	//To find if property set in env
+	return	"test".equalsIgnoreCase(context.getEnvironment().getProperty("db.name"));
+	
+	
 Most projects will have different environments like DEV, QA, PREPROD and PRODUCTION. Most of the projects have different databases for each Environment. First developer starts developing projects on DEV environment which uses DEV database. Once development is done, they will move code to QA environment which uses different database. Once QA is done successfully, they will move to PREPRODUCTION environment, which uses PREPRO database to do End-to-End and performance testing. Once everything is done and happy to go live, it will be deployed on LIVE or PRODUCTION Environment which uses PROD database.Then creating DataSource object for each environment requires different database details.
 
-If we change Database details, then we need to rebuild and deploy application. We cannot use same application WAR or EAR file for all environments.To solve this kind of environment related setup dependencies, Spring 3.1 has introduced a new annotation. That is @Profile annotation. It can be used to develop an ìIf-Then-Elseî conditional checking to configure. We cannot implement this scenario by using SpEL Ternary Operator.
+If we change Database details, then we need to rebuild and deploy application. We cannot use same application WAR or EAR file for all environments.To solve this kind of environment related setup dependencies, Spring 3.1 has introduced a new annotation. That is @Profile annotation. It can be used to develop an ‚ÄúIf-Then-Else‚Äù conditional checking to configure. We cannot implement this scenario by using SpEL Ternary Operator.
 
 To work with Profiles, Spring 3.1 Framework has provided the following two properties
 
@@ -13,7 +24,7 @@ spring.profiles.active represents active profile.
 
 spring.profiles.default represents default profile.
 
-If we donít specify active profile, then Spring IOC Container will look for default profile. We need to provide values to one of these properties as JVM Parameters. In Eclipse or Spring STS IDEs, we need to pass these values as shown below,
+If we don‚Äôt specify active profile, then Spring IOC Container will look for default profile. We need to provide values to one of these properties as JVM Parameters. In Eclipse or Spring STS IDEs, we need to pass these values as shown below,
 
 -Dspring.profiles.active=dev
 
