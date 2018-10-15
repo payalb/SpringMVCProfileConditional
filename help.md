@@ -1,6 +1,13 @@
 Using Condition to read property file based on active profile and in test , enabling it for test profile
 using @Activeprofile
 
+boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) - Determine if the condition matches.
+Parameters:
+
+context - the condition context
+metadata - metadata of the class or method being checked
+Returns: true if the condition matches and the component can be registered or false to veto registration.
+
      	@Override
 	public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
 		//context.getBean("")!=null
@@ -8,6 +15,8 @@ using @Activeprofile
 	return	context.getBeanFactory().containsBeanDefinition("");
 	}
 	
+Suppose you want to create a bean only if a specific condition is present in the property file otherwise you don’t want to create the bean. That can be done using @Conditional annotation.
+
 	//To find if property set in env
 	return	"test".equalsIgnoreCase(context.getEnvironment().getProperty("db.name"));
 	
