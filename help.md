@@ -73,3 +73,12 @@ We can use Spring @Conditional annotation for the following scenarios:
 
 	Conditions based on  Bean’s Method’s Annotation’s parameter values.
 	
+We can also set active profiles as:
+	ctx.getEnvironment().setActiveProfiles("test","prod");
+	
+	or
+	-D spring.profiles.active="test,prod"
+	
+Default profile represents profile enabled by default, 
+@Profile("default"): Enabled if no profile set else will be disabled.
+when used over configuration, applies to all beans declared inside it
