@@ -21,14 +21,22 @@ Spring 4 @Conditional annotation allows Developers to define user-defined strate
 
 We can use Spring @Conditional annotation for the following scenarios:
 
-Condition whether a property is available or not using Environment variables, irrespective of its value.
-Like Profiles, Condition whether a property value is available or not using Environment variables.
-Conditions based on a Bean definition are present in Spring Application context.
-Conditions based on a Bean object are present in Spring Application context.
-Conditions based on some or all Bean properties values.
-Conditions based on some Resources are present in current Spring Application Context or not.
-Conditions based on Bean’s Annotations
-Conditions Bean’s Method’s Annotations.
-Conditions based on Bean’s Annotation’s parameter values
-Conditions based on  Bean’s Method’s Annotation’s parameter values.
+	Condition whether a property is available or not using Environment variables, irrespective of its value.
+	Like Profiles, Condition whether a property value is available or not using Environment variables.
+
+	Conditions based on a Bean definition are present in Spring Application context.
+
+	Conditions based on a Bean object are present in Spring Application context.
+
+	Conditions based on some or all Bean properties values.
+
+	Conditions based on some Resources are present in current Spring Application Context or not.
+
+	Conditions based on Bean’s Annotations
+
+	Conditions Bean’s Method’s Annotations.
+
+	Conditions based on Bean’s Annotation’s parameter values
+
+	Conditions based on  Bean’s Method’s Annotation’s parameter values.
 	
