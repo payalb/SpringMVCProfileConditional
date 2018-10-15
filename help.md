@@ -8,6 +8,12 @@ context - the condition context
 metadata - metadata of the class or method being checked
 Returns: true if the condition matches and the component can be registered or false to veto registration.
 
+What is AnnotatedTypeMetadata?
+AnnotatedTypeMetadata helps retrieving information about specified annotation type used on underlying element i.e. the same element annotated with @Conditional: the method with @Bean or class with @Component or @Configuration.
+
+This meta data helper can get us the attributes of annotations like @Bean, @Component, @Lazy, @Scope etc, used on the same method or class.
+
+
      	@Override
 	public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
 		//context.getBean("")!=null
