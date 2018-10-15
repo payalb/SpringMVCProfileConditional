@@ -11,6 +11,24 @@ using @Activeprofile
 	//To find if property set in env
 	return	"test".equalsIgnoreCase(context.getEnvironment().getProperty("db.name"));
 	
+Based on annotation profile attribute
+	public class TestEnvironmentConfig implements Condition {
+
+	@Override
+	public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+		MultiValueMap<String, Object> map = metadata.getAllAnnotationAttributes(Profile.class.getName());
+		for (Object o : map.get("value")) {
+			if (context.getEnvironment().acceptsProfiles((String[]) o)) {
+				return true;
+			}
+		}
+		;
+		return false;
+	}
+
+}
+
+	
 Spring 4.0 @Conditional annotation is at more higher level when compared to @Profile annotation. @Profile annotation should be used for loading application configuration based on conditional logic.
 @Profile annotation is restricted to write conditional checking based on predefined properties. @Conditional annotation does not have this restriction.
 
